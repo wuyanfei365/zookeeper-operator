@@ -1,0 +1,11 @@
+
+Namespace: zk
+
+image:
+  repository: wuyanfei365/common
+  tag: zk-operator-0.0.3
+  pullPolicy: IfNotPresent
+  imagePullSecrets: []
+
+crd:
+  create: false

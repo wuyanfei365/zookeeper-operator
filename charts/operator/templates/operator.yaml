@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-operator
+  namespace: "{{ .Values.Namespace }}"
+  labels:
+    app.kubernetes.io/name: zookeeper-operator
+    app.kubernetes.io/app: zookeeper-operator
+    app.kubernetes.io/instance: zookeeper-operator
+    meta.helm.sh/release-name: zookeeper-operator
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/app: zookeeper-operator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/app: zookeeper-operator
+    spec:
+      containers:
+        - name: zookeeper-operator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          ports:
+            - containerPort: 6000
+              name: metrics

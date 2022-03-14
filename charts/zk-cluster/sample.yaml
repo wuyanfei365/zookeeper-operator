@@ -1,0 +1,7 @@
+apiVersion: zookeeper.github.com/v1
+kind: ZookeeperCluster
+metadata:
+  name: zk
+  namespace: zk
+spec:
+  replicas: 3
